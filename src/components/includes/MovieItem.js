@@ -1,5 +1,5 @@
 import React from "react";
-import imgfile from "../../assets/img/noimg.png";
+import imgfile from "../../assets/img/basic.jpg";
 
 function MovieItem(props) {
   const MovieImg = `${props.results.poster_path}`;
