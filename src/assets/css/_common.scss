@@ -1,0 +1,174 @@
+// container
+.container {
+  max-width: 1200px;
+  width: 98%;
+  margin: 0 auto;
+  //background: rgba(255,255,255,0.3);
+}
+
+// cont__title
+.cont__title {
+  padding: 15vmax 1% 10vmax;
+  font-size: 5vmax;
+  font-family: var(--main_font);
+  text-transform: uppercase;
+  line-height: 0.85;
+  color: var(--white);
+  background-color: var(--black);
+
+  em {
+    display: block;
+  }
+}
+.cont__title.light {
+  background-color: var(--light_bg);
+  color: var(--black);
+}
+
+@media (max-width: 1200px) {
+  .cont__title {
+    text-align: center;
+    padding-bottom: 10vw;
+  }
+}
+
+//타이틀 애니메이션
+
+// .cont__title {
+//   strong {
+//     display: block;
+//     opacity: 0;
+//     transform: translateY(50px);
+//   }
+//   em {
+//     display: block;
+//     opacity: 0;
+//     transform: translateY(50px);
+//   }
+// }
+
+.cont__contact {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--white);
+  text-transform: uppercase;
+  background-color: var(--black);
+
+  p {
+    font-size: 1.2rem;
+    font-family: var(--sub_font);
+    margin-bottom: 4vw;
+  }
+  h3 {
+    font-family: var(--main_font);
+    font-size: 9vw;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 1vw;
+
+    em {
+      display: block;
+    }
+  }
+  a {
+    font-size: 1rem;
+    font-family: var(sub_font);
+    border: 1px solid var(—white);
+    border-radius: 50px;
+    padding: 1vw 4vw;
+  }
+}
+// loading
+
+body {
+  background: #000;
+}
+#loading.loading__active {
+  opacity: 1;
+  transition: all 1.6s;
+  z-index: 99999;
+}
+#loading {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  z-index: -1;
+  transition: all 1.6s;
+}
+#loading.light {
+  background: var(--light_bg);
+
+  .loading__text span {
+    color: var(--black);
+  }
+}
+.loading__text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+
+  span {
+    display: inline-block;
+    margin: 0 5px;
+    color: var(--white);
+  }
+
+  @for $i from 1 through 7 {
+    span:nth-child(#{$i}) {
+      filter: blur(0px);
+      animation: blur-text 1.5s $i * 0.2s infinite linear alternate;
+    }
+  }
+
+  // span:nth-child(1){
+  //     filter: blur(0px);
+  //     animation: blur-text 1.5s 0s infinite linear alternate;
+  // }
+  // span:nth-child(2){
+  //     filter: blur(0px);
+  //     animation: blur-text 1.5s 0.2s infinite linear alternate;
+  // }
+  // span:nth-child(3){
+  //     filter: blur(0px);
+  //     animation: blur-text 1.5s 0.4s infinite linear alternate;
+  // }
+  // span:nth-child(4){
+  //     filter: blur(0px);
+  //     animation: blur-text 1.5s 0.6s infinite linear alternate;
+  // }
+  // span:nth-child(5){
+  //     filter: blur(0px);
+  //     animation: blur-text 1.5s 0.8s infinite linear alternate;
+  // }
+  // span:nth-child(6){
+  //     filter: blur(0px);
+  //     animation: blur-text 1.5s 1.0s infinite linear alternate;
+  // }
+  // span:nth-child(7){
+  //     filter: blur(0px);
+  //     animation: blur-text 1.5s 1.2s infinite linear alternate;
+  // }
+}
+
+@keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
+  }
+}

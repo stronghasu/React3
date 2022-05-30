@@ -1,0 +1,20 @@
+.movie__inner {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+    li {
+      width: 24%;
+      a {
+        color: #fff;
+        img {
+          height: 90%;
+        }
+      }
+    }
+  }
+}
+
+p {
+  color: #fff;
+}
