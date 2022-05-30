@@ -1,20 +1,28 @@
 .movie__inner {
   ul {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1%;
+
+    p {
+      color: var(--white);
+      font-size: 150%;
+      text-indent: 30px;
+      text-align: center;
+      opacity: 0.5;
+    }
+
     li {
       width: 24%;
+
       a {
         color: #fff;
+
         img {
-          height: 90%;
+          height: 80%;
         }
       }
     }
   }
-}
-
-p {
-  color: #fff;
 }

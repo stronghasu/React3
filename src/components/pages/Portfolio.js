@@ -45,24 +45,24 @@ class Portfolio extends React.Component {
       gsap.to("#header", { duration: 0.8, top: 0 });
       gsap.to("#footer", { duration: 0.8, bottom: 0, delay: 0.2 });
       gsap.to(".cont__title strong", {
-        duration: 0.8,
+        duration: 0.7,
         y: 0,
         opacity: 1,
         delay: 1,
         ease: "power4.out",
       });
       gsap.to(".cont__title em", {
-        duration: 0.8,
+        duration: 0.7,
         y: 0,
         opacity: 1,
-        delay: 1.6,
+        delay: 1.0,
         ease: "power4.out",
       });
       gsap.to(".port__inner", {
         duration: 0.5,
         y: 0,
         opacity: 1,
-        delay: 1.8,
+        delay: 1.6,
         ease: "power4.out",
       });
     }, 10);

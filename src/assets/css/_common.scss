@@ -32,20 +32,18 @@
   }
 }
 
-//타이틀 애니메이션
-
-// .cont__title {
-//   strong {
-//     display: block;
-//     opacity: 0;
-//     transform: translateY(50px);
-//   }
-//   em {
-//     display: block;
-//     opacity: 0;
-//     transform: translateY(50px);
-//   }
-// }
+.cont__title {
+  strong {
+    display: block;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  em {
+    display: block;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
 
 .cont__contact {
   height: 100vh;
