@@ -7,7 +7,7 @@ function Header() {
         <Link to="/portfolio">portfoilo</Link>
       </div>
       <div className="header__logo">
-        <Link to="/">webstroyboy</Link>
+        <Link to="/">YunHarry</Link>
       </div>
       <nav className="header__menu">
         <ul>
