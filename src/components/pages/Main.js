@@ -1,21 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import Contents from "../layout/Contents";
-import Title from "../layout/Title";
-import MovieCont from "../includes/MovieCont";
-import Touch from "../layout/Touch";
-import MovieSearch from "../includes/MovieSearch";
+import MainCont from "../includes/MainCont";
 import Loading from "../includes/Loading";
 import { gsap } from "gsap";
 
-function Movie() {
-  const [videos, setVideos] = useState([]);
+// function Main() {
+//   return (
+//     <>
+//       <Header />
 
-  const mainAnimation = () => {
+//       {/* Contents 안에 넣어서 children으로 넘어갈 수 있게 */}
+//       <Contents>
+//         <MainCont />
+//       </Contents>
+
+//       <Footer />
+//     </>
+//   );
+// }
+
+class Main extends React.Component {
+  state = {
+    isLoading: true,
+  };
+
+  mainAnimation = () => {
     setTimeout(() => {
-      document.getElementById("loading").classList.remove("loading__active");
-
       gsap.to("#header", {
         duration: 0.8,
         top: 0,
@@ -25,91 +37,83 @@ function Movie() {
         bottom: 0,
         delay: 0.2,
       });
-      gsap.to(".cont__title strong", {
-        duration: 0.7,
-        y: 0,
+      gsap.to(".main__inner > div:nth-child(1)", {
+        duration: 1.0,
         opacity: 1,
-        delay: 1.0,
-        ease: "power4.out",
-      });
-      gsap.to(".cont__title em", {
-        duration: 0.7,
         y: 0,
-        opacity: 1,
-        delay: 1.3,
-        ease: "power4.out",
+        delay: 1.4,
+        ease: "elastic.out(1, 0.3)",
       });
-      gsap.to(".youtube__search", {
-        duration: 0.7,
+      gsap.to(".main__inner > div:nth-child(2)", {
+        duration: 1.0,
+        opacity: 1,
         y: 0,
-        opacity: 1,
-        delay: 1.5,
-        ease: "power4.out",
+        delay: 1.6,
+        ease: "elastic.out(1, 0.3)",
       });
-      gsap.to(".main__inner", {
-        duration: 0.7,
+      gsap.to(".main__inner > div:nth-child(3)", {
+        duration: 1.0,
+        opacity: 1,
         y: 0,
-        opacity: 1,
-        delay: 1.5,
-        ease: "power4.out",
+        delay: 1.8,
+        ease: "elastic.out(1, 0.3)",
       });
+      gsap.to(".main__inner > div:nth-child(4)", {
+        duration: 1.0,
+        opacity: 1,
+        y: 0,
+        delay: 2.0,
+        ease: "elastic.out(1, 0.3)",
+      });
+    }, 10);
+  };
+
+  getSite = () => {
+    setTimeout(() => {
+      console.log("두번째 시작");
+      this.setState({ isLoading: false });
+      this.mainAnimation();
+    }, 1600);
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      document.getElementById("loading").classList.remove("loading__active");
+      document.querySelector("body").style.background = "#000";
+      this.getSite();
     }, 2000);
-  };
+  }
 
-  const search = (query) => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+  render() {
+    const { isLoading } = this.state;
 
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=9278d13f704ad0fe53c2263b692efd89&query=${query}`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => setVideos(result.results))
-      .catch((error) => console.log("error", error));
-  };
-
-  useEffect(() => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(
-      "https://api.themoviedb.org/3/search/movie?api_key=9278d13f704ad0fe53c2263b692efd89&query=spiderman",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        setVideos(result.results);
-        mainAnimation();
-      })
-      .catch((error) => console.log("error", error));
-  }, []);
-
-  // console.clear();
-
-  return (
-    <>
-      <Loading />
-      <Header />
-      <Contents>
-        <Title title={["Movie", "search"]} />
-        <section className="movie__cont">
-          <div className="container">
-            <div className="movie__inner">
-              <MovieSearch onSearch={search} />
-              <MovieCont videos={videos} />
-            </div>
-          </div>
-        </section>
-        <Touch />
-      </Contents>
-      <Footer />
-    </>
-  );
+    return (
+      <>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <Header />
+            <Contents>
+              <MainCont />
+            </Contents>
+            <Footer />
+          </>
+        )}
+      </>
+    );
+  }
 }
 
-export default Movie;
+export default Main;
+
+// Contents대신 들어있던 것 !!!! -> MainCont.js로 옮김
+
+// {/* 언더바를 두개쓰면 사스에서 뒤에글자만 바꿔서 쓰면됨! */}
+// <section className="main__cont">
+// <div className="main__inner">
+//   {textInfo.map((txt) => (
+//     <Info text={txt.text} />
+//   ))}
+// </div>
+// </section>

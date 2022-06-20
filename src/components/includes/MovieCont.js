@@ -15,7 +15,7 @@ function MovieCont(props) {
         ))
       )}
     </ul>
-  );
+  );  
 }
 
 export default MovieCont;
