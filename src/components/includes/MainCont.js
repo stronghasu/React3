@@ -5,10 +5,10 @@ function MainInfo({ text }) {
 }
 
 const mainText = [
-  { text: "We Provide" },
-  { text: "Visual coding" },
-  { text: "Solutions" },
-  { text: "for you webs" },
+  { text: "Welcome To " },
+  { text: "My Portfolio." },
+  { text: "Please Enjoy" },
+  { text: "It Slowly" },
 ];
 
 function MainCont() {
